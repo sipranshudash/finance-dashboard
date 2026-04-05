@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const axiosInstance = axios.create({
-  baseURL: 'http://127.0.0.1:8000/api',
+  baseURL: 'https://finance-dashboard-2-wryg.onrender.com/api',
 })
 
 // Attach JWT token to every request
@@ -23,7 +23,7 @@ axiosInstance.interceptors.response.use(
       try {
         const refresh = localStorage.getItem('refresh_token')
         const res = await axios.post(
-          'http://127.0.0.1:8000/api/auth/token/refresh/',
+          'https://finance-dashboard-2-wryg.onrender.com/api/auth/token/refresh/',
           { refresh }
         )
         localStorage.setItem('access_token', res.data.access)
